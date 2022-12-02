@@ -2,14 +2,8 @@
 
 if __name__ == "__main__":
 
-    """Print all names defined by hidden_4 module."""
+    """Print the value of variable a from variable_load_5."""
 
-    import hidden_4
+    from variable_load_5 import a
 
-    names = dir(hidden_4)
-
-    for name in names:
-
-        if name[:2] != "__":
-
-            print(name)
+    print(a)

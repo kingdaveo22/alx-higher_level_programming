@@ -19,4 +19,4 @@ def safe_function(fct, *args):
 
     else:
 
-        return 
+        return res

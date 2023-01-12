@@ -1,127 +1,39 @@
 #!/usr/bin/python3
 
-"""Define classes for a singly-linked list."""
+"""Define a MagicClass matching exactly a bytecode provided by Holberton."""
 
-class Node:
+import math
 
-    """Represent a node in a singly-linked list."""
+class MagicClass:
 
-    def __init__(self, data, next_node=None):
+    """Represent a circle."""
 
-        """Initialize a new Node.
+    def __init__(self, radius=0):
 
-        Args:
+        """Initialize a MagicClass.
 
-            data (int): The data of the new Node.
+        Arg:
 
-            next_node (Node): The next node of the new Node.
-
-        """
-
-        self.data = data
-
-        self.next_node = next_node
-
-    @property
-
-    def data(self):
-
-        """Get/set the data of the Node."""
-
-        return (self.__data)
-
-    @data.setter
-
-    def data(self, value):
-
-        if not isinstance(value, int):
-
-            raise TypeError("data must be an integer")
-
-        self.__data = value
-
-    @property
-
-    def next_node(self):
-
-        """Get/set the next_node of the Node."""
-
-        return (self.__next_node)
-
-    @next_node.setter
-
-    def next_node(self, value):
-
-        if not isinstance(value, Node) and value is not None:
-
-            raise TypeError("next_node must be a Node object")
-
-        self.__next_node = value
-
-class SinglyLinkedList:
-
-    """Represent a singly-linked list."""
-
-    def __init__(self):
-
-        """Initalize a new SinglyLinkedList."""
-
-        self.__head = None
-
-    def sorted_insert(self, value):
-
-        """Insert a new Node to the SinglyLinkedList.
-
-        The node is inserted into the list at the correct
-
-        ordered numerical position.
-
-        Args:
-
-            value (Node): The new Node to insert.
+            radius (float or int): The radius of the new MagicClass.
 
         """
 
-        new = Node(value)
+        self.__radius = 0
 
-        if self.__head is None:
+        if type(radius) is not int and type(radius) is not float:
 
-            new.next_node = None
+            raise TypeError("radius must be a number")
 
-            self.__head = new
+        self.__radius = radius
 
-        elif self.__head.data > value:
+    def area(self):
 
-            new.next_node = self.__head
+        """Return the area of the MagicClass."""
 
-            self.__head = new
+        return (self.__radius ** 2 * math.pi)
 
-        else:
+    def circumference(self):
 
-            tmp = self.__head
+        """Return The circumference of the MagicClass."""
 
-            while (tmp.next_node is not None and
-
-                    tmp.next_node.data < value):
-
-                tmp = tmp.next_node
-
-            new.next_node = tmp.next_node
-
-            tmp.next_node = new
-
-    def __str__(self):
-
-        """Define the print() representation of a SinglyLinkedList."""
-
-        values = []
-
-        tmp = self.__head
-
-        while tmp is not None:
-
-            values.append(str(tmp.data))
-
-            tmp = tmp.next_node
-
-        return ('\n'.join(values))
+        return (2 * math.pi * self.__radius)

@@ -1,27 +1,20 @@
 #!/usr/bin/python3
 
-def safe_print_integer(value):
 
-    """Print an integer with "{:d}".format().
+def safe_print_division(a, b):
 
-    Args:
-
-        value (int): The integer to print.
-
-    Returns:
-
-        If a TypeError or ValueError occurs - False.
-
-        Otherwise - True.
-
-    """
+    """Returns the division of a by b."""
 
     try:
 
-        print("{:d}".format(value))
+        div = a / b
 
-        return (True)
+    except (TypeError, ZeroDivisionError):
 
-    except (TypeError, ValueError):
+        div = None
 
-        return (False)
+    finally:
+
+        print("Inside result: {}".format(div))
+
+    return (div)

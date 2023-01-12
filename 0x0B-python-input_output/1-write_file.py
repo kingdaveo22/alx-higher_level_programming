@@ -1,19 +1,23 @@
 #!/usr/bin/python3
 
-""" class Square that defines a square"""
+"""Defines a file-writing function."""
 
-class Square:
+def write_file(filename="", text=""):
 
-    """ class Square that defines a square"""
+    """Write a string to a UTF8 text file.
 
-    def __init__(self, size):
+    Args:
 
-        """initialize square
+        filename (str): The name of the file to write.
 
-        Args:
+        text (str): The text to write to the file.
 
-            size (int): size of the square
+    Returns:
 
-        """
+        The number of characters written.
 
-        self.__size = size  #: size of the square
+    """
+
+    with open(filename, "w", encoding="utf-8") as f:
+
+        return f.write(text)
